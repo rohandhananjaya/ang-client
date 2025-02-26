@@ -21,15 +21,17 @@ export class LoginComponent {
 
       this.http.post('https://localhost:7152/login', loginData)
         .subscribe(
-          (response) => {
-            console.log('Login successful', response);
-            this.successMessage = 'Login successful!';
-            this.errorMessage = '';
-          },
-          (error) => {
-            console.error('Login failed', error);
-            this.errorMessage = 'Login failed. Please check your credentials.';
-            this.successMessage = '';
+          {
+            next: (response) => {
+              console.log('Login successful', response);
+              this.successMessage = 'Login successful!';
+              this.errorMessage = '';
+            },
+            error: (error) => {
+              console.error('Login failed', error);
+              this.errorMessage = 'Login failed. Please check your credentials.';
+              this.successMessage = '';
+            }
           }
         );
     }
