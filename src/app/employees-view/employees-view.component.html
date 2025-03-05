@@ -15,17 +15,11 @@
                     </tr>
                 </thead>
                 <tbody id="employeeTable">
-                    <tr>
-                        <td>1</td>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>HR</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jane</td>
-                        <td>Smith</td>
-                        <td>IT</td>
+                    <tr *ngFor="let employee of employees">
+                        <td>{{employee.id}}</td>
+                        <td>{{employee.firstName}}</td>
+                        <td>{{employee.lastName}}</td>
+                        <td>{{employee.department}}</td>
                     </tr>
                 </tbody>
             </table>
