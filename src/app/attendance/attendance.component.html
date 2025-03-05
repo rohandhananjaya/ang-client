@@ -1,0 +1,60 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary mb-3" type="button" data-toggle="modal" data-target="#attendanceModal">+ Mark Attendance</button>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceTable">
+                    <!-- Rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="attendanceModal" tabindex="-1" role="dialog" aria-labelledby="attendanceModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="attendanceModalLabel">Mark Attendance</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="attendanceForm">
+                    <div class="form-group">
+                        <label for="attendanceId">Id</label>
+                        <input type="text" class="form-control" id="attendanceId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendanceName">Name</label>
+                        <input type="text" class="form-control" id="attendanceName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendanceDate">Date</label>
+                        <input type="date" class="form-control" id="attendanceDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="startTime">Start Time</label>
+                        <input type="time" class="form-control" id="startTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endTime">End Time</label>
+                        <input type="time" class="form-control" id="endTime" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
