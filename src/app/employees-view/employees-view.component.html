@@ -2,10 +2,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" id="searchInput" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
-                <button class="btn btn-success" type="button" id="button-addon2">Search</button>
+                <input type="number" class="form-control" id="searchInput" placeholder="Search..." aria-label="Search"
+                    aria-describedby="button-addon2" [(ngModel)]="employeeId">
+                <button class="btn btn-success" type="button" id="button-addon2" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" (click)="searchEmployees()">Search</button>
             </div>
-            <table class="table table-bordered table-striped">
+            <table *ngIf="!isListLoading" class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
@@ -23,6 +25,36 @@
                     </tr>
                 </tbody>
             </table>
+            <div *ngIf="isListLoading" class="spinner-border text-primary" role="status"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Employee details</h5>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="!isIndividualLoading">
+                    <div *ngIf="employee">
+                        <p><strong>Id:</strong> {{employee.id}}</p>
+                        <p><strong>First Name:</strong> {{employee.firstName}}</p>
+                        <p><strong>Last Name:</strong> {{employee.lastName}}</p>
+                        <p><strong>Department:</strong> {{employee.department}}</p>
+                    </div>
+                </div>
+                <div *ngIf="!employee">
+                    <p>No employee found.</p>
+                </div>
+                <div *ngIf="isIndividualLoading" class="spinner-border text-primary" role="status"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>
